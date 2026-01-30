@@ -1,0 +1,149 @@
+/*
+  Clazino Agent Dashboard
+  Theme system for Quasar + custom UI:
+  - Soft Dark (default)
+  - Light
+  Tokens are CSS variables so components stay consistent.
+*/
+
+:root {
+  /* shared */
+  --clz-primary: #18a34a; /* Clazino green (sparingly) */
+  --clz-warning: #f59e0b;
+  --clz-danger: #ef4444;
+
+  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* QUASAR color bindings */
+body {
+  --q-primary: var(--clz-primary);
+  --q-negative: var(--clz-danger);
+  --q-warning: var(--clz-warning);
+}
+
+/* Light Theme */
+body.body--light {
+  --clz-bg: #f4f6fb;
+  --clz-surface: #ffffff;
+  --clz-card: #ffffff;
+  --clz-border: #e3e8f3;
+  --clz-text: #0b1220;
+  --clz-muted: #5b667a;
+  --clz-input: #ffffff;
+  --clz-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+/* Soft Dark Theme (default) */
+body.body--dark {
+  --clz-bg: #0b1220;
+  --clz-surface: #0f182b;
+  --clz-card: #101c33;
+  --clz-border: #1f2a44;
+  --clz-text: #e6ebf5;
+  --clz-muted: #aab4c5;
+  --clz-input: #0f1a2d;
+  --clz-shadow: 0 14px 34px rgba(0, 0, 0, 0.35);
+}
+
+/* App background */
+body {
+  background: var(--clz-bg);
+  color: var(--clz-text);
+}
+
+/* Layout helpers */
+.clz-layout {
+  background: var(--clz-bg);
+}
+
+.clz-header {
+  background: var(--clz-surface) !important;
+  border-bottom: 1px solid var(--clz-border);
+}
+
+.clz-drawer {
+  background: var(--clz-surface) !important;
+  border-right: 1px solid var(--clz-border);
+}
+
+.clz-page {
+  background: var(--clz-bg);
+}
+
+/* Cards */
+.q-card.clz-card,
+.clz-card {
+  background: var(--clz-card);
+  border: 1px solid var(--clz-border);
+  box-shadow: var(--clz-shadow);
+  border-radius: 14px;
+}
+
+/* Inputs */
+.q-field--outlined .q-field__control {
+  background: var(--clz-input);
+  border-color: var(--clz-border) !important;
+}
+
+.q-field__native,
+.q-field__prefix,
+.q-field__suffix {
+  color: var(--clz-text);
+}
+
+.q-field--error .q-field__control {
+  border-color: var(--clz-danger) !important;
+}
+
+/* Muted text */
+.text-muted {
+  color: var(--clz-muted) !important;
+}
+
+/* Sidebar nav active */
+.clz-nav-item.q-item {
+  border-radius: 10px;
+  margin: 2px 10px;
+}
+
+.clz-nav-active {
+  background: color-mix(in srgb, var(--clz-primary) 14%, transparent) !important;
+  color: var(--clz-text) !important;
+  border: 1px solid color-mix(in srgb, var(--clz-primary) 30%, var(--clz-border)) !important;
+}
+
+.clz-nav-active .q-icon {
+  color: var(--clz-primary) !important;
+}
+
+/* Auth pages */
+.clz-auth-bg {
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 600px at 10% 10%, rgba(24, 163, 74, 0.18), transparent 60%),
+    radial-gradient(900px 500px at 90% 20%, rgba(59, 130, 246, 0.12), transparent 55%),
+    var(--clz-bg);
+}
+
+.clz-auth-card {
+  width: 100%;
+  max-width: 460px;
+}
+
+/* Tables */
+.q-table__container {
+  border: 1px solid var(--clz-border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.q-table thead tr {
+  background: color-mix(in srgb, var(--clz-card) 86%, var(--clz-surface));
+}
+
+/* Make focus visible */
+*:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--clz-primary) 65%, transparent);
+  outline-offset: 2px;
+}
